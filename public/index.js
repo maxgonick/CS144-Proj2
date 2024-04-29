@@ -8,5 +8,6 @@ const main = () => {
   app.addCard("todo", "Write App class", "khaki");
   let card = app.addCard("todo", "Test everything!", "pink");
   card.setDescription("Hopefully we've been testing throughout the process...");
+  console.log(test);
 };
 main();
