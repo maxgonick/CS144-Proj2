@@ -2,6 +2,7 @@ import App from "./app.js";
 let app = new App();
 const formSubmit = (event) => {
   event.preventDefault();
+  event.stopPropagation();
   const formData = new FormData(event.target);
   const title = formData.get("title");
   const color = formData.get("color");
@@ -17,6 +18,5 @@ const main = () => {
   app.addCard("todo", "Write App class", "khaki");
   let card = app.addCard("todo", "Test everything!", "pink");
   card.setDescription("Hopefully we've been testing throughout the process...");
-
 };
 main();
