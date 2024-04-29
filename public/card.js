@@ -32,7 +32,9 @@ export default class Card {
       const cardNode = event.target.closest(".card");
       const editField = cardNode.querySelector(".editDescription");
       editField.classList.remove("hidden");
+      editField.value = cardNode.querySelector(".description").innerText;
       editField.focus();
+      editField.select();
     };
     const newElement = document.querySelector(".template").cloneNode(true);
     newElement.classList.remove("template");
