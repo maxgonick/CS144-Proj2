@@ -25,6 +25,7 @@ export default class Card {
     // eslint-disable-next-line no-restricted-properties
     const newElement = document.createElement("div");
     newElement.innerHTML = self.htmlCode;
+    newElement.style.backgroundColor = self.color;
     colElem.append(newElement);
   }
 

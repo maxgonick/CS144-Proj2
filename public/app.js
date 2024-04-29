@@ -1,4 +1,5 @@
 import Card from "./card.js";
+// eslint-disable-next-line no-unused-vars
 import Mover from "./mover.js";
 
 export default class App {
@@ -15,7 +16,6 @@ export default class App {
     const card = new Card(title, color);
     card.addToCol(document.querySelector("#" + col), null);
     return card;
-
   //TODO
   };
 };
