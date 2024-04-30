@@ -36,6 +36,12 @@ export default class Card {
       editField.focus();
       editField.select();
     };
+    const moveEvent = (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+      console.log(event.target.closest(".card"));
+      mover.startMoving(event.target.closest(".card"));
+    };
     const newElement = document.querySelector(".template").cloneNode(true);
     newElement.classList.remove("template");
     newElement.style.backgroundColor = self.color;
@@ -44,6 +50,7 @@ export default class Card {
     newElement.querySelector(".delete").addEventListener("click", deleteEvent);
     newElement.querySelector(".edit").addEventListener("click", editEvent);
     newElement.querySelector(".editDescription").addEventListener("blur", leaveEditEvent);
+    newElement.querySelector(".startMove").addEventListener("click", moveEvent);
     newElement.querySelector(".description").innerText = NO_DESCRIPTION_TEXT;
     self.card = newElement;
     colElem.append(newElement);

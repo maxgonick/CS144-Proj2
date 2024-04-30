@@ -4,14 +4,42 @@ const MOVE_HERE_TEXT = "— Move here —";
 export default class Mover {
   constructor() {
     //TODO
+    self.active = false;
   }
 
   startMoving(card) {
+    //Helper Functions
+    console.log(self.active);
+    const moveCardEvent = (event) => {
+      const targetElement = event.target.previousSibling;
+      targetElement.insertAdjacentElement("afterend", card);
+      this.stopMoving();
+    };
+
     //TODO
+    if (self.active) {
+      return;
+    }
+    console.log("in moving");
+    card.classList.add("moving");
+    const nodeList = document.querySelectorAll(".columnTitle:not(.template), .card:not(.template)");
+    for (const node of nodeList) {
+      const button = document.createElement("button");
+      button.innerText = MOVE_HERE_TEXT;
+      button.classList.add("moveHere");
+      button.addEventListener("click", moveCardEvent);
+      node.insertAdjacentElement("afterend", button);
+    }
+    self.active = true;
   }
 
   stopMoving() {
     //TODO
+    const buttonList = document.querySelectorAll(".moveHere");
+    for (const button of buttonList) {
+      button.remove();
+    }
+    self.active = false;
   }
 
   //TODO

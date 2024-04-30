@@ -5,16 +5,13 @@ import Mover from "./mover.js";
 export default class App {
   constructor() {
     //TODO
-    this.todo = [];
-    this.doing = [];
-    this.done = [];
+    this.mover = new Mover();
   };
 
   addCard(col, title, color) {
     //TODO
-    console.log("in addCard");
     const card = new Card(title, color);
-    card.addToCol(document.querySelector("#" + col), null);
+    card.addToCol(document.querySelector("#" + col), this.mover);
     return card;
   //TODO
   };
