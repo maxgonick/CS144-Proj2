@@ -3,6 +3,7 @@ let app = new App();
 const formSubmit = (event) => {
   event.preventDefault();
   event.stopPropagation();
+  app.mover.stopMoving();
   const formData = new FormData(event.target);
   const title = formData.get("title");
   const color = formData.get("color");

@@ -15,6 +15,7 @@ export default class Card {
       event.preventDefault();
       event.stopPropagation();
       console.log("WORK");
+      mover.stopMoving();
       const cardNode = event.target.closest(".card");
       cardNode.remove();
     };
@@ -23,7 +24,8 @@ export default class Card {
       event.preventDefault();
       const cardNode = event.target.closest(".card");
       const editField = cardNode.querySelector(".editDescription");
-      cardNode.querySelector(".description").innerText = editField.value;
+      console.log(editField.value);
+      cardNode.querySelector(".description").innerHTML = editField.value;
       editField.classList.add("hidden");
     };
     const editEvent = (event) => {
@@ -39,6 +41,7 @@ export default class Card {
     const moveEvent = (event) => {
       event.stopPropagation();
       event.preventDefault();
+      mover.stopMoving();
       console.log(event.target.closest(".card"));
       mover.startMoving(event.target.closest(".card"));
     };

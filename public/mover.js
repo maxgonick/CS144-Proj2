@@ -12,6 +12,7 @@ export default class Mover {
     console.log(self.active);
     const moveCardEvent = (event) => {
       const targetElement = event.target.previousSibling;
+      card.classList.remove("moving");
       targetElement.insertAdjacentElement("afterend", card);
       this.stopMoving();
     };
@@ -38,6 +39,10 @@ export default class Mover {
     const buttonList = document.querySelectorAll(".moveHere");
     for (const button of buttonList) {
       button.remove();
+    }
+    const nodeList = document.querySelectorAll(".moving");
+    for (const node of nodeList) {
+      node.classList.remove("moving");
     }
     self.active = false;
   }
