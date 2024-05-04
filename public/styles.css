@@ -53,4 +53,9 @@ textarea {
 .moveHere:hover {
   background-color: #e0e0e0;
   color: black;
+  cursor: pointer;
+}
+
+.dragoverZone {
+  border:2px solid blue;
 }
