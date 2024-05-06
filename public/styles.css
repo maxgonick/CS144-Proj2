@@ -57,5 +57,5 @@ textarea {
 }
 
 .dragoverZone {
-  border:2px solid blue;
+  outline:2px solid blue;
 }
